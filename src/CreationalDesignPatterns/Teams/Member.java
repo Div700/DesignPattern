@@ -1,4 +1,4 @@
-package Teams;
+package CreationalDesignPatterns.Teams;
 
 public class Member
 {
