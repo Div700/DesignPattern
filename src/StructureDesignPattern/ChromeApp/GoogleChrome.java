@@ -18,7 +18,7 @@ public class GoogleChrome extends Browser
     @Override
     public void renderChrome() 
     {
-        System.out.print("Currently viewing Google Chrome");
-        
+        System.out.println("-------------------------------------------");
+        System.out.println("Main Chrome ");
     }
 }

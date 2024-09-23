@@ -11,6 +11,7 @@ package StructureDesignPattern.ChromeApp;
 abstract class BrowserDecorator extends Browser 
 {
     abstract void renderChrome();  // Method to render or add features to the chrome interface
+    abstract void addComponents();
 }
 
 

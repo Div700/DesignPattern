@@ -4,21 +4,40 @@
  */
 package StructureDesignPattern.ChromeApp;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 /**
  *
  * @author Divyansh
  */
 class StyleDecorator extends BrowserDecorator {
     Browser browser;
-
-    StyleDecorator(Browser browser) {
+    private List<String> style;
+    StyleDecorator(Browser browser)
+    {
+        style = new ArrayList<>();
         this.browser = browser;  // Decorates the base browser
     }
 
+    @Override
+    public void addComponents()
+    {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the style to add");
+        String newStyle = sc.next();
+        style.add(newStyle);
+    }
+    
     public void renderChrome()
     {
         browser.renderChrome();
-        System.out.print(" + new style");
+        System.out.println("Styles in your chrome customized chrome profile: ");
+        for(String s:style)
+        {
+            System.out.println(s);
+        }
     }
 }
 
