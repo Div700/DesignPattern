@@ -13,9 +13,11 @@ import java.util.Map;
  *
  * @author Divyansh
  */
+//caretaker class acting as intermediary between client and originator
 public class ProgressKeeper
 {
     String studentID;
+    //map to contain the different states of the sheet
     Map<String,List<Sheet_Memento>> sheet_memento_list;
     
     public ProgressKeeper(String studentID)
@@ -24,6 +26,7 @@ public class ProgressKeeper
         sheet_memento_list = new HashMap<>();
     }
     
+    //function to add a new state 
     public void addMemento(Sheet_Memento sheetSnapshot,String topic)
     {
         if(!sheet_memento_list.containsKey(topic))
@@ -33,7 +36,7 @@ public class ProgressKeeper
         }
         sheet_memento_list.get(topic).add(sheetSnapshot); //adding the memento in the list for that topic
     }
-    
+    //function to retrieve the capture mementos
     public List<Sheet_Memento> getMementoList(String topic)
     {
         try
@@ -46,6 +49,7 @@ public class ProgressKeeper
             return null;
         }
     }
+    //function to print the report for the student
     public void printReport(String topic)
     {
         System.out.println(sheet_memento_list.get(topic));

@@ -8,8 +8,11 @@ package CreationalDesignPatterns.Teams;
  *
  * @author Divyansh
  */
+//interface for all the teams to follow
 public interface TeamStructure
 {
+    //function to add a member in the team
     void addMember(String name, String email, String rollNumber);
+    //function to remove a member from the team
     void removeMember(String rollNumber);
 }

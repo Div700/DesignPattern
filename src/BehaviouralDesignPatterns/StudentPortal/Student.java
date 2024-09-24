@@ -8,11 +8,13 @@ package BehaviouralDesignPatterns.StudentPortal;
  *
  * @author Divyansh
  */
+//student class
 public class Student 
 {
     private String name;
     private String studentID;
     private String school;
+    //caretaker class object for maintaining the different states
     private ProgressKeeper progresskeeper;
 
     public Student(String name, String studentID, String school) 

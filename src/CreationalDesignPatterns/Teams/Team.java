@@ -1,16 +1,15 @@
 package CreationalDesignPatterns.Teams;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Team implements Cloneable,TeamStructure 
 {
-    private String teamId;
+    private String teamId; //name of the team
     private String teamName; // name of the team
+    //map data structure to store all the members in the team
     private Map<String,Member> members;
-    // Getter and Setter for teamName
+    
     public Team()
     {
         members = new HashMap<>();
@@ -41,7 +40,7 @@ public class Team implements Cloneable,TeamStructure
         this.teamId = teamId;
     }
 
-    // Method to add member data
+    // Method to add member 
     @Override
     public void addMember(String name, String email, String rollNumber) {
         Member member = new Member();
@@ -51,6 +50,7 @@ public class Team implements Cloneable,TeamStructure
         members.put(rollNumber, member);
     }
 
+    //to remove a member
     @Override
     public void removeMember(String rollNumber) 
     {

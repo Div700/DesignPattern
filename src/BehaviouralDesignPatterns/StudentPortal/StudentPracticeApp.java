@@ -10,15 +10,15 @@ import java.time.LocalDate;
  *
  * @author Divyansh
  */
+//client class
 public class StudentPracticeApp 
 {
     public static void main(String args[])
     {
+        //creating one instance for the student 
         Student s1 = new Student("Divyansh","ZSE07","Zydus School Vejalpur");
-        Student s2 = new Student("Nish","MAV12","Maharaja Agrasen Vidalaya");
-        
+        //creating instance for originator class homeworksheet
         HomeWorkSheet mathsSheets1 = new HomeWorkSheet("Maths-1",25);
-        HomeWorkSheet englishSheets2 = new HomeWorkSheet("English-grammar",50);
         
         //suppose s1 did 10 questions on day1
         Sheet_Memento day1Progress = mathsSheets1.saveProgress(10,LocalDate.of(2024, 9, 22));

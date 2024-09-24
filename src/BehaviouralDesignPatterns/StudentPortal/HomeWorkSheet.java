@@ -10,11 +10,12 @@ import java.time.LocalDate;
  *
  * @author Divyansh
  */
+//originator class which creates or captures the state of an object
 public class HomeWorkSheet
 {
-    private String topic;
-    private int total_questions;
-    private int solved_questions;
+    private String topic; //topic of the home work sheet
+    private int total_questions; //total questions in the sheet
+    private int solved_questions; //solved questions in the sheet
 
     public HomeWorkSheet(String topic, int total_questions) {
         this.topic = topic;
@@ -22,6 +23,7 @@ public class HomeWorkSheet
         this.solved_questions = 0;
     }
 
+    //function to save the state of the object
     public Sheet_Memento saveProgress(int completedQuestions,LocalDate date)
     {
         return new Sheet_Memento(completedQuestions,date);

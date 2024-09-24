@@ -19,7 +19,9 @@ public class Insta_App
 {
     public static void main(String args[]) throws IOException
     {
+        //HashMap to store the users objects
         Map<String, User> users = new HashMap<>();
+        //input stream objects
         InputStreamReader read = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(read);
         
@@ -27,7 +29,7 @@ public class Insta_App
         int choice = 1;
         int photos = 0;
         String name;
-        
+        //looping till user does not exit
         while(choice != 0)
         {
             try
@@ -38,6 +40,7 @@ public class Insta_App
                 switch(choice)
                 {
                     case 1:
+                        //creating a new user
                         System.out.println("Enter new user id: ");
                         name = br.readLine();
                         while(users.containsKey(name))
@@ -46,16 +49,19 @@ public class Insta_App
                             name = br.readLine();
                         }
                         User clientUser = new User(name);
+                        //adding user in the map
                         users.put(name, clientUser);
                         break;
                         
                     case 2:
                         System.out.println("Enter your userid to create post for: ");
                         name = br.readLine();
+                        //checking if the user exists
                         User u = users.get(name);
                         if (u == null) {
                             throw new NullPointerException("User not found.");
                         }
+                        //creating a new post for the user
                         System.out.println("Enter the number of photos in the post: ");
                         photos = Integer.parseInt(br.readLine()); // Catching NumberFormatException
                         u.post(photos);
@@ -65,13 +71,15 @@ public class Insta_App
                         System.out.println("Enter your username: ");
                         name = br.readLine();
                         User currentUser = users.get(name);
+                        //checking if the user exists
                         if (currentUser == null) {
                             throw new NullPointerException("User not found.");
                         }
-                                
+                        //following a new user
                         System.out.println("Enter the username to follow");
                         name = br.readLine();
                         u = users.get(name);
+                        //checking if the user to be followed exists
                         if (u == null) {
                             throw new NullPointerException("User to follow not found.");
                         }
@@ -80,6 +88,7 @@ public class Insta_App
                         break;
                     
                     case 4:
+                        //viewing the profile for a user
                         System.out.println("Enter your username: ");
                         name = br.readLine();
                         currentUser = users.get(name);
@@ -98,6 +107,7 @@ public class Insta_App
                         if (posts != null && !posts.isEmpty())
                         {
                             System.out.println(posts);
+                            //liking any post
                             System.out.println("Enter 1 if you want to like any post");
                             int do_like = Integer.parseInt(br.readLine());
                             if (do_like == 1)
@@ -106,6 +116,7 @@ public class Insta_App
                                 int postid = Integer.parseInt(br.readLine());
                                 posts.get(postid-1).likePost(currentUser); // Might throw IndexOutOfBoundsException
                             }
+                            //commenting on a post
                             System.out.println("Enter 2 if you want to add a comment to any post");
                             int do_comment = Integer.parseInt(br.readLine());
                             if (do_comment == 2)

@@ -13,12 +13,12 @@ import java.util.List;
  */
 public class User 
 {
-    private String userName;
-    private List<User> followers;
-    private List<User> following;
-    private int no_followers;
-    private int no_posts;
-    private int no_following;
+    private String userName; //name of user
+    private List<User> followers; //list of followers
+    private List<User> following; //list of following
+    private int no_followers; //number of followers
+    private int no_posts; //number of posts
+    private int no_following; //number of following
     
     public User(String name)
     {
@@ -30,19 +30,22 @@ public class User
         no_following = 0;
         PostManager.getPostManager().addUsers(this);
     }
+    
+    //function to follow a new user
     public void follow(User new_following)
     {
         following.add(new_following);
         no_following++;
         new_following.addFollower(this);
     }
-    
+    //function to add the user requesting to follow
     public void addFollower(User new_follower)
     {
         no_followers++;
         followers.add(new_follower);
     }
     
+    //function to make a new post
     public void post(int photos)
     {
         Post newPost = new Post(photos,this,no_posts+1);
@@ -50,12 +53,15 @@ public class User
         PostManager manager = PostManager.getPostManager();
         manager.create_new_post(this,newPost);
     }
+    //function to get the posts for the user
     private List<Post> getUserPosts(User u)
     {
+        //using singleton post manager to retrieve data
         PostManager manager = PostManager.getPostManager();
         return manager.getPosts(u);
     }
 
+    //function to view profile of the user
     public List<Post> viewProfile(User u)
     {
         if(u.getFollowers().contains(this))
@@ -66,6 +72,7 @@ public class User
         return null;
     }
     
+    //getters and setters
     public String getUserName() {
         return userName;
     }

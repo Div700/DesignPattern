@@ -10,10 +10,11 @@ import java.time.LocalDate;
  *
  * @author Divyansh
  */
+//memento class which captures the state of the originator (Sheet) class
 public final class Sheet_Memento 
 {
-    int solved_questions;
-    LocalDate date;
+    int solved_questions; //solved questions for the day
+    LocalDate date; //date of that day
     
     public Sheet_Memento(int solved_questions,LocalDate date)
     {
@@ -21,6 +22,7 @@ public final class Sheet_Memento
         this.date = date;
     }
 
+    //setting the solved questions for a particular day
     public void setSolved_questions(int solved_questions) {
         this.solved_questions = solved_questions;
     }

@@ -15,12 +15,12 @@ import java.util.Map;
  */
 public class Post 
 {
-    int postId;
-    User instaId;
+    int postId; //id of the post
+    User instaId; 
     int no_likes;
     int photos;// parameter for number of photos in the post
     Map<User,String> comments;//parameter for adding comments in the post
-    List<User> LikedUsers;
+    List<User> LikedUsers; //stroing the liked users
     
     public Post(int photos, User userId,int postid)
     {
@@ -31,16 +31,18 @@ public class Post
         LikedUsers = new ArrayList<>();
         this.no_likes = 0;
     }
+    //function to add a comment
     void addComment(User user, String comment)
     {
         comments.put(user, comment);
     }
+    //function to like a post
     void likePost(User user)
     {
         LikedUsers.add(user);
         no_likes++;
     }
-    
+    //getter and setters
     public User getInstaId() {
         return instaId;
     }

@@ -8,11 +8,12 @@ package BehaviouralDesignPatterns.Youtube;
  *
  * @author Divyansh
  */
+//class for youtube video
 public class Youtube_Video
 {
-    String title;
-    String description;
-    int duration;
+    private String title; //title of the video
+    private String description; //description of the video
+    private int duration; //duration of the video
 
     public Youtube_Video(String title, String description, int duration) {
         this.title = title;
@@ -20,6 +21,7 @@ public class Youtube_Video
         this.duration = duration;
     }
 
+    //getters and setters
     public String getTitle() {
         return title;
     }

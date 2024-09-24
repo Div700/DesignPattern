@@ -12,11 +12,12 @@ import java.util.Scanner;
  *
  * @author Divyansh
  */
+//class for youtube channel which is a implementation for the subject
 public class Youtube_Channel implements Subject
 {
     String channel_Name;
-    private List<Youtube_Video> videos;
-    private List<Observer> subscribers;
+    private List<Youtube_Video> videos; //list of videos in the channel
+    private List<Observer> subscribers; //list of subscribers in the channe;
     public Youtube_Channel(String channelName) 
     {
         this.channel_Name = channelName;
@@ -24,6 +25,7 @@ public class Youtube_Channel implements Subject
         subscribers = new ArrayList<>();
     }
     
+    //function to add a new video
     void addNewVideo(Youtube_Video newVideo)
     {
         System.out.println("Video added successfully");
@@ -34,18 +36,21 @@ public class Youtube_Channel implements Subject
         notifyObservers(notification,newVideo);
     }
     
+    //adding a subsriber
     @Override
     public void addObserver(Observer oberver) 
     {
         subscribers.add(oberver);
     }
 
+    //removing a subsriber
     @Override
     public void removeObserver(Observer observer) 
     {
         subscribers.remove(observer);
     }
 
+    //notifying the subscribers
     @Override
     public void notifyObservers(String message,Youtube_Video newVideo) 
     {

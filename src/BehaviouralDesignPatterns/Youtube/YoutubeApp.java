@@ -14,12 +14,15 @@ import java.util.Map;
  *
  * @author Divyansh
  */
+//main driver class
 public class YoutubeApp 
 {
     public static void main(String args[]) throws IOException
     {
+        //input stream objects
         InputStreamReader read = new InputStreamReader(System.in);
         BufferedReader br = new BufferedReader(read);
+        //map to store all the users
         Map<String,Observer> users = new HashMap<>();
         String name,email,channelName;
         int choice = 1;
@@ -34,24 +37,30 @@ public class YoutubeApp
                 switch(choice)
                 {
                     case 1:
+                        //creating a new user
                         System.out.println("Enter your name: ");
                         name = br.readLine();
                         System.out.println("Enter your email id");
                         email = br.readLine();
+                        //ensuring every user has different mail id
                         while(users.containsKey(email))
                         {
                             System.out.println("Username already exists, please provide another username: ");
                             email = br.readLine();
                         }
+                        //creating the new user
                         Observer newUser = new User(name,email);
                         System.out.println("Welcome to Youtube!");
+                        //adding the user in the map
                         users.put(email,newUser);
                         break;
                         
                     case 2:
+                        //creating a new channel
                         System.out.println("Enter your email to create channel for: ");
                         email = br.readLine();
                         Observer currentUser = users.get(email);
+                        //checking is such user exists
                         if (currentUser == null) 
                         {
                             throw new NullPointerException("User not found.");
@@ -62,6 +71,7 @@ public class YoutubeApp
                         break;
                     
                     case 3:
+                        //creating a new video for the channel
                         System.out.println("Enter your username: ");
                         email = br.readLine();
                         
@@ -73,6 +83,7 @@ public class YoutubeApp
                         break;
                     
                     case 4:
+                        //subscribing to a new user's channel
                         System.out.println("Enter your username: ");
                         email = br.readLine();
                         currentUser = users.get(email);

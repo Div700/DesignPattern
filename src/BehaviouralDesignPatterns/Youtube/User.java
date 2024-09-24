@@ -15,27 +15,30 @@ import java.util.logging.Logger;
  *
  * @author Divyansh
  */
+//user class which serves as the implementation of observer interface
 public class User implements Observer
 {
     private String name;
     private String email;
-    Youtube_Channel channel;
+    Youtube_Channel channel; //channel owned by the user
 
     public User(String name, String email) {
         this.name = name;
         this.email = email;
     }
      
+    //updating the user if a new video is added on the subsribed channel
     @Override
     public void update(String notification)
     {
         System.out.println("Recieved notification on +"+name+" mobile: "+notification);
     }
     
-    
+    //creating a new channel
     @Override
     public void createChannel(String name) 
     {
+        //one user can only create a single channel
         if(channel == null)
         {
             channel = new Youtube_Channel(name);
@@ -46,12 +49,14 @@ public class User implements Observer
         }
     }
 
+    //subsribing to a new channel
     @Override
     public void subscribe(Subject SubscribeTochannel)
     {
       SubscribeTochannel.addObserver(this);
     }
 
+    //adding video to the channel
     @Override
     public void addVideo() 
     {
