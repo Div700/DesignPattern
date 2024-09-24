@@ -38,4 +38,35 @@ Example: Adding new styles and extensions to the chrome web browser.
 
 Composite Pattern:
 The composite pattern lets clients treat individual objects and compositions of objects uniformly.
-Example: Making hierarchy of objects for implementation in a game like cricket07, where there are many leaf and composite objects/
+Example: Making hierarchy of objects for implementation in a game like cricket07, where there are many leaf and composite objects
+
+Package 4 : 
+This is the mini project on the topic : Astronaut Daily Schedule Organizer Programming Exercise
+
+Project Overview
+This console-based application helps astronauts organize their daily schedules. It allows users to manage tasks by adding, removing, viewing, and editing them. The system ensures that tasks do not overlap and provides error messages for invalid operations. It also supports prioritizing tasks and marking them as completed.
+
+Functional Requirements: 
+
+Mandatory Features
+Add Task: Create tasks with a description, start time, end time, and priority level.
+Remove Task: Delete tasks from the schedule.
+View Tasks: Display all tasks sorted by start time.
+Task Overlap Validation: Ensure tasks do not overlap.
+Error Handling: Provide meaningful error messages for invalid operations.
+
+Optional Features
+Edit Task: Modify an existing task's details.
+Filter by Priority: View tasks filtered by priority level.
+
+Non-Functional Requirements
+Exception Handling: Handle errors gracefully.
+Performance: Ensure efficient task management and validation.
+Logging: Implement logging to track user actions and errors.
+
+Design Patterns Used
+Singleton Pattern: Ensures that only one instance of the ScheduleManager exists throughout the application.
+Factory Pattern: Used to create task objects efficiently and flexibly.
+Observer Pattern: Notifies users of task conflicts or updates to the schedule.
+
+Also the concept of single resposibility and dependency inversion has been maintained
