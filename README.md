@@ -79,5 +79,4 @@
 - **Observer Pattern:** Notifies users of task conflicts or updates.
 
 ### Design Principles
-- **Single Responsibility Principle:** Each class has a single responsibility.
 - **Dependency Inversion Principle:** High-level modules do not depend on low-level modules but on abstractions.
